@@ -5,7 +5,10 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+import logging
 
+
+logger = logging.getLogger(__name__)
 
 class FlatList(APIView):
     """
@@ -18,10 +21,12 @@ class FlatList(APIView):
 
     def post(self, request, format=None):
         request.data['posted_by']=request.user.id
-        serializer = FlatSerializer(data=request.data)
+        data = request.data
+        serializer = FlatSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
+        print(data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -37,7 +42,7 @@ class FlatDetail(APIView):
 
     def get(self, request, pk, format=None):
         flat = self.get_object(pk)
-        serializer = SnippetSerializer(flat)
+        serializer = FlatSerializer(flat)
         return Response(serializer.data)
 
     def delete(self, request, pk, format=None):
