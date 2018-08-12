@@ -326,5 +326,5 @@ obunky/media/
 
 .pytest_cache/
 .env
-.envs/*
-!.envs/.local/
+# .envs/*
+# !.envs/.local/
