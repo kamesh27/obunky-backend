@@ -57,6 +57,7 @@ class Flat(models.Model):
     securty_deposit = models.IntegerField(default=0) # number of months for which security has to be paid
     furnishing = models.CharField(max_length=2, choices=FURNISHING_CHOICES)
     preferences = pg_fields.ArrayField(models.CharField(max_length=2, choices=PREFERENCE_CHOICES), default=[])
+    flat_area = models.CharField(max_length=200, default=[])
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
