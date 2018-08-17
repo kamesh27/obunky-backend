@@ -1,8 +1,8 @@
-www.{$DOMAIN_NAME} {
-    redir https://obunky.com
-}
+# backend.{$DOMAIN_NAME} {
+#    redir https://obunky.com
+# }
 
-{$DOMAIN_NAME} {
+backend.{$DOMAIN_NAME} {
     proxy / django:5000 {
         header_upstream Host {host}
         header_upstream X-Real-IP {remote}

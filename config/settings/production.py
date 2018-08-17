@@ -8,7 +8,7 @@ from .base import env
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['obunky.com'])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['backend.obunky.com'])
 
 # DATABASES
 # ------------------------------------------------------------------------------
@@ -217,7 +217,7 @@ LOGGING = {
 SENTRY_CELERY_LOGLEVEL = env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
 RAVEN_CONFIG = {
     'dsn': SENTRY_DSN,
-    'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
+    # 'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
