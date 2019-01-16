@@ -21,6 +21,12 @@ class FlatList(APIView):
 
     def post(self, request, format=None):
         request.data['posted_by']=request.user.id
+        photo_urls_req = request.data.get('photo_urls')
+        if not photo_urls_req:
+            return Response({"message": "A filename is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        policy_expires = int(time.time()+5000)
+
         data = request.data
         serializer = FlatSerializer(data=data)
         if serializer.is_valid():

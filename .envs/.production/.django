@@ -4,7 +4,7 @@
 DJANGO_SETTINGS_MODULE=config.settings.production
 DJANGO_SECRET_KEY=9Sw1ASBR6C81uRUiAJ4W5ooBZbbA71KjFkSXtzCioKR8U96A7IExJprf9BwVAiNm
 DJANGO_ADMIN_URL=pKJhZ3jLLx5Dgv2PQiXX5eQdB3tcRnHY/
-DJANGO_ALLOWED_HOSTS=54.153.103.123
+DJANGO_ALLOWED_HOSTS=backend.obunky.com
 
 # Security
 # ------------------------------------------------------------------------------
@@ -13,14 +13,14 @@ DJANGO_SECURE_SSL_REDIRECT=False
 
 # Email
 # ------------------------------------------------------------------------------
-MAILGUN_API_KEY=
-DJANGO_SERVER_EMAIL=
-MAILGUN_DOMAIN=
+MAILGUN_API_KEY=5507ce20fcf0dba8066b8fa59f666ce8-6b60e603-54cb83c7
+DJANGO_SERVER_EMAIL=noreply@mg.obunky.com
+MAILGUN_DOMAIN=smtp.mailgun.org
 
 # AWS
 # ------------------------------------------------------------------------------
-DJANGO_AWS_ACCESS_KEY_ID=AKIAIAFJF7BHMRBX4ICA
-DJANGO_AWS_SECRET_ACCESS_KEY=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
+DJANGO_AWS_ACCESS_KEY_ID=AKIAJRH4C4576DPDEK5A
+DJANGO_AWS_SECRET_ACCESS_KEY=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
 DJANGO_AWS_STORAGE_BUCKET_NAME=obunky-images
 
 # django-allauth
@@ -37,7 +37,7 @@ WEB_CONCURRENCY=4
 
 # Sentry
 # ------------------------------------------------------------------------------
-SENTRY_DSN=
+SENTRY_DSN=https://d29f3a894b7849e18c153aa696093190@sentry.io/1260839
 
 
 # Redis

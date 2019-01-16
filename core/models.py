@@ -49,7 +49,6 @@ class Flat(models.Model):
     """
     property_type = models.CharField(max_length=5, choices=PROPERTY_TYPES)
     bhk = models.CharField(max_length=2, choices=BHK_TYPES)
-    photo_urls = pg_fields.ArrayField(models.URLField(max_length=1024), default=[]) #
     status = models.CharField(max_length=2, choices=STATUS_CHOICES, default="A")
     available_from = models.DateField(auto_now_add=True) # Date from which the flat is available
     sharing_type = models.CharField(max_length=10, choices=SHARING_CHOICES)
@@ -59,5 +58,15 @@ class Flat(models.Model):
     preferences = pg_fields.ArrayField(models.CharField(max_length=2, choices=PREFERENCE_CHOICES), default=[])
     flat_area = models.CharField(max_length=200, default=[])
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=None)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class FlatImage(models.Model):
+    """
+    Stores images of the flats
+    """
+    image = models.ImageField(upload_to='flat_images/')
+    flat = models.ForeignKey(Flat, on_delete=models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
